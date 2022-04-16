@@ -26,14 +26,11 @@ export default function Register({ token }) {
 
     const register = async (req, res) => {
         try{
-            event.preventDefault();
             let result = await axios.post(`${config.URL}/register`,
                 { username, email, password,phone ,studentid})
             console.log('result: ', result)
             console.log('result.data:  ', result.data)
             console.log('token:  ', token)
-            alert(result.data.message)
-            event.submit();
             setStatus(result.data.message)
         }
         catch (e) {
@@ -112,15 +109,13 @@ export default function Register({ token }) {
                 <br />
             Status:  {status}
                 <br /><br />
-                <form onSubmit={register} method='post'>
                 <div className={styles.content}>
                     {registerForm()}
                 </div>
 
                 <div>
-                    <button type='submit'>Register</button>
+                    <button onClick={register}>Register</button>
                 </div>
-                </form>
             </div>
         </Layout>
     )

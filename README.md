@@ -1,6 +1,6 @@
-Mini project subject 240-311
+Mini project  240-311
 
-Sudarat choowang 5835512078
+Thongchai Dermklung 5835512086
 
 ## How to Run backend (NodeJS)
 ```
