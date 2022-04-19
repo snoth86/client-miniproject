@@ -30,6 +30,7 @@ export default function Login({ token }) {
 
     const loginForm = () => (
         <div className={styles.gridContainer}>
+            
             <div>
                 Username:
             </div>
@@ -64,6 +65,7 @@ export default function Login({ token }) {
             <div className={styles.container}>
                 <Navbar />
                 <h1>Login</h1>
+                
                 <div><b>Token:</b> {token.substring(0, 15)}...
                 <button onClick={copyText}> Copy token </button>
                 </div>

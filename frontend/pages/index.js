@@ -9,6 +9,7 @@ export default function Home({ token }) {
     <Layout>
     <Head>
         <title>First Page</title>
+        
     </Head>
     <div className={styles.container}>
         <Navbar />

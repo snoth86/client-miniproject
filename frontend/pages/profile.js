@@ -36,6 +36,7 @@ const Profile1 = ({ token }) => {
                 <title>User profile</title>
             </Head>
             <div className={styles.container}>
+                <div class= "position: absolute;right: 0; display: flex;justify-content: space-between;align-items: center;">
                 <Navbar />
                 <h1>User profile</h1>
                 <div>
@@ -61,7 +62,7 @@ const Profile1 = ({ token }) => {
                             <span>{user.phone}</span>
                         </p>
                     
-                    
+                        </div>
                     </div>
                     
                 </div>

@@ -109,7 +109,7 @@ export default function Register({ token }) {
                 <br />
             Status:  {status}
                 <br /><br />
-                <div className={styles.content}>
+                <div className = "absolute right-0 flex justify-between items-center">
                     {registerForm()}
                 </div>
 
