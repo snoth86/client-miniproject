@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css'
 import Navbar from '../components/navbar'
 import axios from 'axios'
 import config from '../config/config'
-
+import { useRouter } from 'next/router'
 export default function Register({ token }) {
 
     const [username, setUsername] = useState('')
@@ -16,6 +16,7 @@ export default function Register({ token }) {
     const [status, setStatus] = useState('')
     const [studentid, setStudentID] = useState('')
 
+    const router = useRouter()
     const profileUser = async () => {
         console.log('token: ', token)
         const users = await axios.get(`${config.URL}/profile`, {
@@ -32,6 +33,7 @@ export default function Register({ token }) {
             console.log('result.data:  ', result.data)
             console.log('token:  ', token)
             setStatus(result.data.message)
+            router.push('/')
         }
         catch (e) {
             console.log(e)
@@ -40,49 +42,49 @@ export default function Register({ token }) {
     }
 
     const registerForm = () => (
-        <div className={styles.gridContainer}>
-            <div>
+        <div className=''>
+            <div className='text-fif'> 
                 Username:
             </div>
-            <div>
-                <input type="text"
+            <div className='text-fif'>
+                <input className='px-2' type="text"
                     name="username"
                     placeholder="username"
                     onChange={(e) => setUsername(e.target.value)}
                 />
             </div>
-            <div>
+            <div className='text-fif'>
                 Email:
             </div>
-            <div>
-                <input type="email"
+            <div className='text-fif'>
+                <input className='px-2' type="email"
                     name="email"
                     placeholder="email"
                     onChange={(e) => setEmail(e.target.value)} />
             </div>
-            <div>
+            <div className='text-fif'>
                 Password:
             </div>
-            <div>
-                <input type="password"
+            <div className='text-fif'>
+                <input className='px-2' type="password"
                     name="password"
                     placeholder="password"
                     onChange={(e) => setPassword(e.target.value)} />
             </div>
-            <div>
+            <div className='text-fif'>
                 Phone:
             </div>
-            <div>
-                <input type="tels"
+            <div className='text-fif'>
+                <input className='px-2' type="tels"
                     name="phone"
                     placeholder="phone"
                     onChange={(e) => setPhone(e.target.value)} />
             </div>
-            <div>
+            <div className='text-fif'>
                 StudentID:
             </div>
-            <div>
-                <input type="text"
+            <div className='text-fif'>
+                <input className='px-2' type="text"
                     name="studentid"
                     placeholder="studentid"
                     onChange={(e) => setStudentID(e.target.value)} />
@@ -96,25 +98,22 @@ export default function Register({ token }) {
         <Layout>
             <Head>
                 <title>Register</title>
-            </Head>
-            <div className={styles.container}>
-                <Navbar />
-                <h1>Register</h1>
-                <div><b>Token:</b> {token.substring(0, 15)}...
-                <button
-                        onClick={() => { navigator.clipboard.writeText(token) }}>
-                        Copy token
-                </button>
-                </div>
-                <br />
-            Status:  {status}
-                <br /><br />
-                <div className = "absolute right-0 flex justify-between items-center">
-                    {registerForm()}
-                </div>
-
-                <div>
-                    <button onClick={register}>Register</button>
+            </Head> 
+            <div className='h-screen'> 
+            <Navbar links={token} />
+                <div className='h-full flex justify-center bg-tri'>
+                    <div className='bg-fur w-full z-10 max-w-5xl flex justify-center'>
+                        <div className='mt-10 border rounded h-fit border-fif p-10'>
+                            <h1 className='text-3xl font-bold text-center mb-10 text-fif'>Register</h1>
+                            <div>
+                                {registerForm()}
+                            </div>
+                            <div className='text-center mt-5'>
+                                <button className='p-2 border border-fif text-fif hover:bg-fif hover:text-tri my-3 rounded px-5' onClick={register}>Register</button>
+                            </div>
+                        </div>
+                    </div>
+                    <img className='fixed left-0 bottom-0 z-0 w-1/6' src='https://media.baamboozle.com/uploads/images/210658/1629691942_44449_url.gif' />
                 </div>
             </div>
         </Layout>

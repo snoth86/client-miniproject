@@ -82,8 +82,9 @@ const Forcast = ({ token }) => {
         setProvince(province)
     )
     const SelectProvince = () => (
-        <div>
-        <select
+        <div className='my-10 text-center text-fif'>
+            <label className='mr-3'>select province:</label>
+        <select className='px-5'
         value={province}
         onChange={(e) => {
             setProvince(e.target.value);
@@ -175,46 +176,53 @@ const Forcast = ({ token }) => {
     return (
         <Layout>
             <Head>
-                <title>User profile</title>
+                <title>Forecast</title>
             </Head>
-            <div className={styles.container}>
-                <Navbar />
-                <h1>Weathere</h1>
-                <SelectProvince/>{province}
-                <div>
-                    <p>
-                                            {/* {JSON.stringify(geocode)}  */}
-                    </p>
-                                            <br></br>
-
-                                        <p>
-                                            {JSON.stringify(weather)}
-                                            
-                                        </p>
+            <div className='h-screen'>
+            <Navbar links={token} />
+                <div className='h-full flex justify-center bg-tri p-3'>
+                    <div>
+                        <div>
+                        <h1 className='text-3xl font-bold text-fif text-center my-5 py-3'>Forecast</h1>
+                <SelectProvince/>
+                <div className='p-2 bg-pri rounded'>
                     <div condition={weather != null}>
-                    <div className="Card">
-                        <div className="top">
-                            <span>{weather.name}</span>
-                            <span>{weather.weather.map((data)=>(
+                    <div className="Card flex bg-sec p-5 rounded text-2xl text-f">
+                        <div className="top flex m-1 relative flex-col   items-center justify-center p-5 rounded">
+                            <span className='z-10'>{weather.name}</span>
+                            <div className='z-10'>{weather.weather.map((data)=>(
+                                <div className='flex  justify-center items-center'>
+                                    <img src={`http://openweathermap.org/img/wn/${data.icon}.png`}/>
                                 <span>{data.main}</span>
-                            ))}</span>
+                                </div>
+                            ))}</div>
+                            <div className='h-full left-0 top-0 w-full opacity-30 rounded bg-fur absolute z-0'></div>
                         </div>
-                        <div className='left'>
-                            <span>{weather.main.temp}</span>
+                        <div className='flex flex-col'>
+                        <div className='left p-3 relative m-1 text-center'>
+                            <span className='z-10' >temperature : {weather.main.temp} ℃</span>
+                            <div className='h-full left-0 top-0 w-full opacity-30 rounded bg-fur absolute z-0'></div>
                         </div>
-                        <div className='right'>
-                            <div className='top'>
-                                <span>min temperature : {weather.main.temp_min}</span>
-                                <span>min temperature : {weather.main.temp_max}</span>
+                        <div className='right    flex'>
+                            <div className='top flex relative  p-3 m-1  flex-col'>
+                                <span className='z-10'>min temperature : {weather.main.temp_min} ℃</span>
+                                <span className='z-10'>max temperature : {weather.main.temp_max} ℃</span>
+                                <div className='h-full left-0 top-0 w-full opacity-30 rounded bg-fur absolute z-0'></div>
                             </div>
-                            <div className='bottom'>
-                                <span>feel like : {weather.main.feels_like}</span>
+                            <div className='bottom p-3 m-1 relative rounded flex justify-center items-center'>
+                                <span className='z-10'>feel like : {weather.main.feels_like} ℃</span>
+                                <div className='h-full w-full opacity-30 rounded bg-fur absolute z-0'></div>
                             </div>
+                        </div>
                         </div>
                     </div>
                     </div>
                    
                 </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </Layout>   
         

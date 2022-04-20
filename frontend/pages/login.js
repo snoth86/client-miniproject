@@ -29,7 +29,7 @@ export default function Login({ token }) {
     }
 
     const loginForm = () => (
-        <div className={styles.gridContainer}>
+        <div className="absolute right-0 flex justify-between items-center">
             
             <div>
                 Username:
@@ -63,7 +63,7 @@ export default function Login({ token }) {
                 <title>Login</title>
             </Head>
             <div className={styles.container}>
-                <Navbar />
+                <Navbar links={token} />
                 <h1>Login</h1>
                 
                 <div><b>Token:</b> {token.substring(0, 15)}...

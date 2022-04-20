@@ -1,13 +1,15 @@
 import Link from 'next/link'
 
-const Navbar = () => (
-    <div>
-        <Link href="/"><a> Home </a></Link> |
-        <Link href="/register"><a> Register </a></Link>  |
-        <Link href="/login"><a> Login </a></Link> |
-        <Link href="/profile"><a> Profile </a></Link> | 
-        <Link href="/forcast"><a> Forcast </a></Link> | 
-        <Link href="/logout"><a> Logout </a></Link> 
+const Navbar = token => (
+    <div className='bg-sec p-3 z-10 flex justify-between'>
+        <div>
+        <Link  href="/"><a className='text-fur'> Home </a></Link>        <Link href="/profile"><a  className='p-2 text-fur'> Profile </a></Link>
+        <Link href="/forcast"><a  className='p-2 text-fur'>  Forcast </a></Link>
+        </div>
+        { token.links ?(
+                    <Link href="/logout"><a  className='p-2 text-fur bg-fif rounded'> Logout </a></Link> 
+
+        ):null}
     </div>
 )
 

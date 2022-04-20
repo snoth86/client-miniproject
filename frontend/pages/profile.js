@@ -35,36 +35,35 @@ const Profile1 = ({ token }) => {
             <Head>
                 <title>User profile</title>
             </Head>
-            <div className={styles.container}>
-                <div class= "position: absolute;right: 0; display: flex;justify-content: space-between;align-items: center;">
-                <Navbar />
-                <h1>User profile</h1>
-                <div>
-                    <b>Token:</b> {token.substring(0, 15)}... <br /><br />
-                    This route is protected by token, user is required to login first.
-                    <br/>
-                    Otherwise, it will be redirect to Login page
-                    <br/><br/>
-                    {JSON.stringify(user)}
-                    <div>
-                        <p>
-                        <span>Email : </span>
+            <div className="bg-indigo-500;">
+            <div className='h-screen'>
+            <Navbar links={token} />
+                <div className='h-full flex items-center flex-col bg-tri p-3'>
+                <h1 className='text-3xl font-bold text-center text-fif my-3 py-3'>User profile</h1>
+                  <div className='border-2 h-3/4 border-pri p-2 rounded w-4/12 z-10'>
+                    <div className='bg-sec h-full text-fur p-5 rounded flex flex-col items-center'>
+                <div className='w-full'>
+                    <div className='w-full flex flex-col item-center justify-center'>
+                        <p className='flex justify-center'>
+                        <span className='w-4/12'>Email : </span>
                         <span>{user.email}</span>
                         </p>
-                        <p>
-                        <span>Student ID : </span>
-                        <spna>
+                        <p className='flex justify-center'>
+                        <span className='w-4/12'>Student ID : </span>
+                        <span>
                         {user.studentid}
-                        </spna>
+                        </span>
                         </p>
-                        <p>
-                            <span>Tel : </span>
+                        <p className='flex justify-center'>
+                            <span className='w-4/12'>Tel : </span>
                             <span>{user.phone}</span>
                         </p>
                     
                         </div>
                     </div>
-                    
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </Layout>
